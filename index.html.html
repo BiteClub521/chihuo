@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>吃货联盟闽南手工小吃</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: #f5f5f7; color: #333; padding-bottom: 90px; }
+        
+        /* 顶部固定的导航栏 */
+        header { background-color: #fff; text-align: center; padding: 15px; border-bottom: 1px solid #e5e5e5; position: sticky; top: 0; z-index: 1000; }
+        header h1 { font-size: 1.3rem; color: #111; }
+        header p { font-size: 0.8rem; color: #666; margin-top: 3px; }
+        
+        .container { max-width: 600px; margin: 15px auto; padding: 0 12px; }
+        
+        /* 闲置卡片样式 */
+        .item-card { background: #fff; border-radius: 16px; overflow: hidden; margin-bottom: 25px; box-shadow: 0 4px 16px rgba(0,0,0,0.06); border: 1px solid #eee; }
+        
+        /* 左右滑动图片区域：支持任意尺寸 */
+        .slider-container { position: relative; width: 100%; aspect-ratio: 4 / 3; background: #f0f0f2; overflow: hidden; }
+        .slider { display: flex; width: 100%; height: 100%; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; }
+        .slider::-webkit-scrollbar { display: none; } 
+        .slide { min-width: 100%; height: 100%; scroll-snap-align: start; position: relative; }
+        
+        /* 图片填充缩放核心 */
+        .slide img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+        
+        /* 滑动提示指示器 */
+        .slider-hint { position: absolute; bottom: 12px; right: 12px; background: rgba(0,0,0,0.6); color: #fff; padding: 3px 10px; border-radius: 12px; font-size: 0.75rem; z-index: 10; pointer-events: none; }
+
+        /* 物品详情 */
+        .item-info { padding: 18px; }
+        .item-price { color: #ff4d4f; font-size: 1.6rem; font-weight: bold; margin-bottom: 8px; display: flex; align-items: baseline; }
+        .item-price span { font-size: 0.95rem; font-weight: normal; margin-right: 2px; }
+        .item-price del { color: #aaa; font-size: 0.85rem; font-weight: normal; margin-left: 8px; }
+        .item-title { font-size: 1.2rem; font-weight: 600; margin-bottom: 10px; line-height: 1.4; color: #111; }
+        .item-desc { font-size: 0.95rem; color: #555; line-height: 1.6; background: #f8f8fa; padding: 12px; border-radius: 8px; border: 1px solid #f0f0f2; }
+
+        /* 底部固定联系栏 */
+        .contact-bar { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 -2px 15px rgba(0,0,0,0.05); padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; max-width: 600px; margin: 0 auto; border-top: 1px solid #eee; z-index: 1000; }
+        .contact-info { display: flex; flex-direction: column; }
+        .contact-info .name { font-weight: bold; font-size: 1rem; color: #111; }
+        .contact-info .wechat { font-size: 0.85rem; color: #666; margin-top: 2px; }
+        .contact-buttons { display: flex; gap: 10px; }
+        .btn { padding: 10px 18px; border-radius: 20px; font-size: 0.9rem; font-weight: bold; text-decoration: none; border: none; cursor: pointer; text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+        .btn-wechat { background-color: #07c160; color: white; }
+        .btn-call { background-color: #108ee9; color: white; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>📦 吃货联盟闽南手工小吃</h1>
+        <p>⬇️ 上下滑动查看更多宝贝 / ⬅️ 左右滑动查看细节</p>
+    </header>
+
+    <div class="container">
+
+        <div class="item-card">
+            <div class="slider-container">
+                <div class="slider">
+                    <div class="slide"><img src="https://s41.ax1x.com/2026/06/12/pmMRqgO.png" alt="宝贝1图片1"></div>
+                    <div class="slide"><img src="https://s41.ax1x.com/2026/06/13/pmQZpTS.png" alt="宝贝1图片2"></div>
+                </div>
+                <div class="slider-hint"> 👈 左右滑动看图 (1/2) </div>
+            </div>
+            
+            <div class="item-info">
+                <div class="item-price"><span>￥</span>10.00 <del>原价￥15.99</del></div>
+                <div class="item-title">闽南手工麻糍一盒</div>
+                <div class="item-desc">
+                    闽南特产手工麻糍
+纯手作无添加｜软糯拉丝｜经典古早小吃
+盒装锁鲜便携，开盒即食，怀旧老味道随时随地享用
+                </div>
+            </div>
+        </div>
+        <div class="item-card">
+            <div class="slider-container">
+                <div class="slider">
+                    <div class="slide"><img src="https://s41.ax1x.com/2026/06/13/pmQZb7T.png" alt="宝贝2图片1"></div>
+                    <div class="slide"><img src="https://s41.ax1x.com/2026/06/13/pmQeFAO.png" alt="宝贝2图片2"></div>
+                </div>
+                <div class="slider-hint"> 👈 左右滑动看图 (1/2) </div>
+            </div>
+            
+            <div class="item-info">
+                <div class="item-price"><span>￥</span>10.00 <del>原价￥12.99</del></div>
+                <div class="item-title">闽南特色 手工制作 姜粿</div>
+                <div class="item-desc">
+                    闽南古法姜粿，暖身祛湿，调理气色，全家皆宜的养生小食。
+                </div>
+            </div>
+        </div>
+        </div>
+
+    <div class="contact-bar">
+        <div class="contact-info">
+            <span class="name">联系人：诗山吃货联盟 梁大姐</span>
+            <span class="wechat">微信：liangGiry</span>
+        </div>
+        <div class="contact-buttons">
+            <button class="btn btn-wechat" onclick="copyWeChat('liangGiry')">复制微信</button>
+            <a class="btn btn-call" href="tel:13645918351">拨打电话</a>
+        </div>
+    </div>
+
+    <script>
+        // 复制微信的脚本
+        function copyWeChat(wechatId) {
+            navigator.clipboard.writeText(wechatId).then(() => {
+                alert('微信号已复制！可以去微信粘贴添加好友了~');
+            }).catch(err => {
+                alert('复制失败，请手动长按记下微信号：' + wechatId);
+            });
+        }
+    </script>
+
+</body>
+</html>
